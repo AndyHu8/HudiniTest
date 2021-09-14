@@ -61,7 +61,7 @@ const kopfMitText = {
     marginBottom: 20,
   },
   bodyText: {
-    overflowY: "scroll",
+    overflowY: "scroll" as "scroll",
     height: 300,
   },
 };
