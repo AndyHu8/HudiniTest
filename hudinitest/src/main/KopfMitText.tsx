@@ -62,6 +62,7 @@ const kopfMitText = {
   },
   bodyText: {
     overflowY: "scroll" as "scroll",
-    height: 300,
+    height: 400,
+    textAlign: "left" as "left",
   },
 };

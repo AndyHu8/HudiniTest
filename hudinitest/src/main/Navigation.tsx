@@ -8,7 +8,6 @@ export default function Navigation() {
 
 const navigation = {
   navi: {
-    height: 70,
     width: "100%",
     backgroundColor: "black",
     display: "flex",
@@ -23,5 +22,7 @@ const navigation = {
     fontSize: 40,
     color: "white",
     fontFamily: "Sedgwick Ave Display, cursive",
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 };
