@@ -1,3 +1,5 @@
+import Requests from "./Requests";
+
 export default function Annotationen() {
   return (
     <div style={annotationen.container}>
@@ -33,6 +35,7 @@ export default function Annotationen() {
       </div>
 
       <button
+        onClick={Requests}
         style={annotationen.button}
         type="button"
         className="btn btn-dark"

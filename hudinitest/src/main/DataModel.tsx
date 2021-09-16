@@ -1,6 +1,6 @@
-export default function DataModel() {
-  const id: string = "";
-  const headline: string = "";
-  const volltext: string = "";
-  const url: string = "";
-}
+export type dataModel = {
+  id: string;
+  headline: string;
+  volltext: string;
+  url: string;
+};

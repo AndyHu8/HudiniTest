@@ -1,42 +1,28 @@
 import { useEffect, useState } from "react";
-import DataModel from "./DataModel";
+import { dataModel } from "./DataModel";
 
-export default function MyComponent() {
-  const [error, setError] = useState(null);
-  const [data, setData] = useState<DataModel>();
+export default function Requests() {
+  const [error, setError] = useState<boolean>(false);
+  const [data, setData] = useState<dataModel>();
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
   useEffect(() => {
     fetch("http://localhost:5000/Artikel")
       .then((res) => res.json())
       .then(
         (result) => {
-          setData(result);
+          setData(data);
+          console.log("Die Daten vom Backend: " + JSON.stringify(result));
+          setError(false);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setError(error);
+        () => {
+          setError(true);
         }
       );
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return data;
   } else {
-    return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.name} {item.price}
-          </li>
-        ))}
-      </ul>
-    );
+    console.log("ERROR: FEHLER IZZ DA");
   }
 }
