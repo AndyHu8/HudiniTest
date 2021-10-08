@@ -9,8 +9,8 @@ export default function Hauptseite() {
   return (
     <div>
       <Navigation />
-      <KopfMitText />
-      <Annotationen />
+      <KopfMitText headline={result?.headline} volltext={result?.volltext} />
+      <Annotationen dataModel={result} />
     </div>
   );
 }

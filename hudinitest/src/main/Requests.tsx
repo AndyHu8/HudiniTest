@@ -10,8 +10,7 @@ export default function Requests() {
       .then((res) => res.json())
       .then(
         (result) => {
-          setData(data);
-          console.log("Die Daten vom Backend: " + JSON.stringify(result));
+          setData(result);
           setError(false);
         },
         () => {
@@ -20,9 +19,20 @@ export default function Requests() {
       );
   }, []);
 
-  if (error) {
-    return data;
+  if (!error) {
+    return data as dataModel;
   } else {
     console.log("ERROR: FEHLER IZZ DA");
   }
+}
+
+export function AnsBackendRequests(
+  dataModel: dataModel | undefined,
+  kategorie: string | undefined,
+  tonalitaet: string | undefined
+) {
+  console.log("Ans backend schicken:");
+  console.log(JSON.stringify(dataModel));
+  console.log(kategorie);
+  console.log(tonalitaet);
 }

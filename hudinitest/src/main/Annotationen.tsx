@@ -1,12 +1,21 @@
-import Requests from "./Requests";
+import { dataModel } from "./DataModel";
+import { AnsBackendRequests } from "./Requests";
 
-export default function Annotationen() {
+type Props = {
+  dataModel: dataModel | undefined;
+};
+
+export default function Annotationen(props: Props) {
   return (
     <div style={annotationen.container}>
       <div style={annotationen.flexContainer}>
         <div>
           <h2>Kategorie</h2>
-          <select className="form-select" aria-label="Default select example">
+          <select
+            id="kategorieValue"
+            className="form-select"
+            aria-label="Default select example"
+          >
             <option selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -23,7 +32,11 @@ export default function Annotationen() {
         </div>
         <div>
           <h2>Tonalität</h2>
-          <select className="form-select" aria-label="Default select example">
+          <select
+            id="tonalitaetValue"
+            className="form-select"
+            aria-label="Default select example"
+          >
             <option>sehr positiv</option>
             <option>positiv</option>
             <option selected>neutral</option>
@@ -35,7 +48,13 @@ export default function Annotationen() {
       </div>
 
       <button
-        onClick={Requests}
+        onClick={() =>
+          AnsBackendRequests(
+            props.dataModel,
+            document.getElementById("kategorieValue")?.innerText,
+            document.getElementById("tonalitaetValue")?.innerText
+          )
+        }
         style={annotationen.button}
         type="button"
         className="btn btn-dark"
